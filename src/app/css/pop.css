@@ -1,0 +1,94 @@
+/* styles.css */
+.popup {
+  position: fixed; /* 固定位置 */
+  top: 0;
+  left: 0;
+  width: 100%; /* 全屏宽度 */
+  height: 100%; /* 全屏高度 */
+  background: rgba(0, 0, 0, 0.8); /* 半透明背景 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 确保在顶层 */
+}
+
+.popup-close-btn {
+  position: absolute;
+  top: 10px; /* 调整按钮位置 */
+  left: 40px;
+  border: none;
+  background: none;
+  color: rgba(128, 128, 128, 0.626); /* 按钮颜色 */
+  font-size: 80px; /* 按钮大小 */
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: none;
+}
+
+.popup-close-btn:hover {
+  background-position: right center;
+  /* change the direction of the change here */
+  color: #eb8d0a;
+  text-decoration: none;
+}
+.pop-swiper {
+  min-width: 100%; /* 图片最大宽度，根据需要调整 */
+  height: 100vh; /* 图片最大高度，根据需要调整 */
+}
+
+.pop-swiper .swiper-slide {
+  position: relative;
+}
+
+.pop-swiper img {
+  min-width: 100%; /* 图片最大宽度，根据需要调整 */
+  height: 100vh; /* 图片最大高度，根据需要调整 */
+}
+
+.audio-player {
+  position: absolute;
+  transition: opacity 0.5s ease; /* 过渡效果，持续0.5秒 */
+  opacity: 1;
+  left: 50%; /* 水平居中定位 */
+  top: 10px; /* 位于图片下方一定的距离 */
+  transform: translateX(-50%); /* 确保audio元素的中心与父元素对齐 */
+  width: 300px; /* 可以根据需要调整 */
+}
+
+.audio-player.hidden {
+  opacity: 0; /* 完全透明时不可见 */
+  visibility: hidden;
+  transition: visibility 0s 0.5s, opacity 0.5s ease; /* 先进行淡出，然后隐藏 */
+}
+
+.subtitle {
+  position: absolute;
+  bottom: 20px; /* 根据需要调整 */
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  font-size: 36px;
+}
+
+.subtitle-center {
+  text-align: center;
+}
+
+.char {
+  display: inline-block;
+  color: white;
+  animation: changeColor 0.4s forwards;
+  margin-right: 5px;
+}
+
+.reset-animation {
+  animation: none !important;
+}
+
+@keyframes changeColor {
+  to {
+    color: yellow;
+  }
+}

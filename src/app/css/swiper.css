@@ -1,0 +1,57 @@
+.thumbnail-swiper h2 {
+  margin: 20px; /* Adjust based on the height of your thumbnails */
+}
+
+.thumbnail-swiper {
+  padding: 10px;
+  position: absolute;
+  bottom: -150px; /* Adjust based on the height of your thumbnails */
+  width: 100%;
+  z-index: 10;
+}
+
+.thumbnail {
+  position: relative;
+  display: flex;
+  justify-content: center; /* Center the thumbnail title horizontally */
+  align-items: flex-end; /* Align the thumbnail title to the bottom */
+  overflow: hidden; /* Ensure the content doesn't exceed the thumbnail area */
+}
+
+.thumbnail-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: rgb(238, 98, 11);
+  text-align: right;
+  padding: 18px;
+  font-size: 20px; /* Adjust size as needed */
+  font-weight: 1000;
+  text-shadow: 2px 6px 2px rgba(0, 0, 0, 0.5);
+}
+
+.thumbnail-swiper .swiper-slide img {
+  max-width: 100%;
+  height: 300px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out; /* Smooth transition for hover effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  border: 3px solid #ffffff;
+}
+
+.thumbnail-swiper .swiper-slide img:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 1); /* More pronounced shadow on hover */
+}
+
+.thumbnail-swiper .swiper-button-next,
+.thumbnail-swiper .swiper-button-prev {
+  top: 32px; /* 按钮定位到容器的垂直中心 */
+  width: 70px; /* 设置按钮的宽度 */
+  height: 300px; /* 设置按钮的高度为Swiper容器的高度 */
+  background-color: rgba(0, 0, 0, 0.5); /* 可选的背景色，增加可见性 */
+  color: #fff; /* 按钮颜色 */
+  margin-left: -10px;
+  margin-right: -10px;
+}
