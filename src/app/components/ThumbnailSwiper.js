@@ -2,10 +2,7 @@
 import React,{useRef, useState} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Footer } from './Footer';
-
 import '../css/swiper.css'
-
-
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 

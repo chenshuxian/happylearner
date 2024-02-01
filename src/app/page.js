@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { MainFeature } from './components/MainFeature';
 import { ThumbnailSwiper } from './components/ThumbnailSwiper';
 import { Popup } from './components/Popup';
+import { recordClick } from '@/utils/recodClick';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -31,6 +32,7 @@ const App = () => {
     }, []);
   
     const handleThumbnailClick = (sd) => {
+      recordClick(sd.id)
       setSlideData(sd);
       setIsPopupOpen(true);
     };

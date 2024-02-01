@@ -17,6 +17,7 @@ model Story {
   createdAt   DateTime @default(now()) // 新增时间
   updatedAt   DateTime @updatedAt      // 修改时间
   pages       Page[]
+  storyClick  StoryClick[]
 }
 
 model Page {
@@ -29,4 +30,13 @@ model Page {
   updatedAt   DateTime @updatedAt      // 修改时间
   story       Story    @relation(fields: [storyId], references: [id])
   storyId     Int
+}
+
+model StoryClick {
+  id       Int      @id @default(autoincrement())
+  storyId  Int
+  clicks   Int      @default(1)
+  date     DateTime @default(now())
+  Story    Story    @relation(fields: [storyId], references: [id])
+  @@unique([storyId, date])
 }
