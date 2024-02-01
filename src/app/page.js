@@ -3,8 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { MainFeature } from './components/MainFeature';
 import { ThumbnailSwiper } from './components/ThumbnailSwiper';
-import { Footer } from './components/Footer';
 import { Popup } from './components/Popup';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
+import 'swiper/css/effect-fade';
+
 import './css/App.css';
 import './css/pop.css';
 
@@ -39,7 +46,6 @@ const App = () => {
       <MainFeature imageUrl={`/story/images/${stories[0]?.title}/1.jpeg`} title={stories[0]?.title} subtitle={stories[0]?.description}/>
       <ThumbnailSwiper onThumbnailClick={handleThumbnailClick} data={stories}/>
       <Popup title={slideData?.title} data={slideData?.pages} isOpen={isPopupOpen} close={closePopup} />
-      <Footer />
     </div>
   );
 };

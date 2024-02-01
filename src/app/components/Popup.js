@@ -1,20 +1,12 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 // Import Swiper React components
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
-import 'swiper/css/thumbs';
-
+import { Swiper, SwiperSlide } from 'swiper/react';
 // import required modules
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { FreeMode, Navigation } from 'swiper/modules';
 
 export const Popup = ({ title, data, isOpen, close }) => {
     const swiperRef = useRef(null);
-    const sw = useSwiper();
     const [isMouseMoving, setIsMouseMoving] = useState(false);
 
     useEffect(() => {
@@ -65,7 +57,9 @@ export const Popup = ({ title, data, isOpen, close }) => {
 
     const handleAudioEnd = () => {
         if(!swiperRef.current.isEnd){
-            swiperRef.current.slideNext();
+            setTimeout(()=>{
+                swiperRef.current.slideNext();
+            },2000);           
         }
         
       };
@@ -83,7 +77,7 @@ export const Popup = ({ title, data, isOpen, close }) => {
             }}
             spaceBetween={10}
             navigation={true}
-            modules={[FreeMode, Navigation, Thumbs]}
+            modules={[FreeMode, Navigation]}
             className="pop-swiper"
             onSlideChange={onSlideChange}
             onSwiper={handleSwiper}

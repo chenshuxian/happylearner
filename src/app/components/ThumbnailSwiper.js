@@ -1,10 +1,8 @@
 "use client"
 import React,{useRef, useState} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Footer } from './Footer';
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
 import '../css/swiper.css'
 
 
@@ -17,7 +15,7 @@ export const ThumbnailSwiper = ({onThumbnailClick , data}) => {
     <h2>近期推出</h2>
     <Swiper
         spaceBetween={6}
-        slidesPerView={5}
+        slidesPerView={6}
         loop={true} // 只有在有足够的幻灯片时才启用循环模式 
         navigation={true}
         modules={[Pagination, Navigation]}
@@ -31,6 +29,7 @@ export const ThumbnailSwiper = ({onThumbnailClick , data}) => {
         </SwiperSlide>
       ))}
       </Swiper>
+      <Footer />
       </div>
   );
 };
