@@ -13,7 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import 'swiper/css/effect-fade';
 
-import './css/app.css';
+import './css/app.css';118
 import './css/pop.css';
 
 const App = () => {

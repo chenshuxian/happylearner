@@ -3,6 +3,7 @@ import prisma from './prisma';
 async function getStory() {
 	try {
 		const Story = await prisma.Story.findMany({
+			orderBy: [{id: 'desc'}],
 			select:{
 				id:true,
 				title:true,
