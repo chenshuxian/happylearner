@@ -24,6 +24,7 @@ model Page {
   id          Int      @id @default(autoincrement())
   pageNumber  Int
   subtitle    String
+  csubtitle   String   @default("test")
   imageUrl    String
   audioUrl    String
   createdAt   DateTime @default(now()) // 新增时间

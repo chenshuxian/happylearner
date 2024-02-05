@@ -16,6 +16,8 @@ import 'swiper/css/effect-fade';
 import './css/app.css';118
 import './css/pop.css';
 
+
+// eslint-disable-next-line @next/next/no-async-client-component
 const App = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [slideData, setSlideData] = useState();
@@ -29,7 +31,7 @@ const App = () => {
       };
 
       fetchData().catch(console.error);
-    }, []);
+    },[]);
   
     const handleThumbnailClick = (sd) => {
       recordClick(sd.id)
