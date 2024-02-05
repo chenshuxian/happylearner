@@ -92,6 +92,11 @@ export const Popup = ({ title, data, isOpen, close }) => {
                         {char}
                     </span>
                 ))}
+                {item.csubtitle.split(' ').map((char, index)=> (
+                    <span key={index} className='cchar' >
+                        {char}
+                    </span>
+                ))}
                 </div>
             </div>
             <audio controls onEnded={() => handleAudioEnd()} className={`audio-player ${!isMouseMoving ? 'hidden' : ''}`}>

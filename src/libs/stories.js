@@ -10,7 +10,8 @@ async function getStory() {
 				description:true,
 				pages:{
 					select:{
-						subtitle:true
+						subtitle:true,
+						csubtitle:true
 					}
 				}
 			}

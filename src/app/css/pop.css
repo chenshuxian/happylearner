@@ -83,6 +83,14 @@
   margin-right: 5px;
 }
 
+.cchar {
+  display: inline-block;
+  color: white;
+  animation: changeColor 0.4s forwards;
+  margin-right: 5px;
+  font-size: 24px;
+}
+
 .reset-animation {
   animation: none !important;
 }
