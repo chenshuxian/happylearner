@@ -1,10 +1,10 @@
 'use client'
 import React, { useEffect, useState } from 'react';
-import { Header } from './components/Header';
 import { MainFeature } from './components/MainFeature';
 import { ThumbnailSwiper } from './components/ThumbnailSwiper';
 import { Popup } from './components/Popup';
 import { recordClick } from '@/utils/recodClick';
+import Grid from '@mui/system/Unstable_Grid/Grid';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -13,7 +13,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 import 'swiper/css/effect-fade';
 
-import './css/app.css';118
+import './css/app.css';
 import './css/pop.css';
 
 
@@ -46,10 +46,17 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-      <MainFeature imageUrl={`/story/images/${stories[0]?.title}/1.jpeg`} title={stories[0]?.title} subtitle={stories[0]?.description}/>
-      <ThumbnailSwiper onThumbnailClick={handleThumbnailClick} data={stories}/>
-      <Popup title={slideData?.title} data={slideData?.pages} isOpen={isPopupOpen} close={closePopup} />
+      <Grid container direction="column">
+        <Grid item xs={12}>
+          <MainFeature imageUrl={`/story/images/${stories[0]?.title}/1.jpeg`} title={stories[0]?.title} subtitle={stories[0]?.description}/>
+        </Grid>
+        <Grid item xs={12}>
+          <ThumbnailSwiper onThumbnailClick={handleThumbnailClick} data={stories}/>
+        </Grid>
+        <Grid item xs={12}>
+          <Popup title={slideData?.title} data={slideData?.pages} isOpen={isPopupOpen} close={closePopup} />
+        </Grid>
+      </Grid>
     </div>
   );
 };

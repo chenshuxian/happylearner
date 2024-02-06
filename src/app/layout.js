@@ -1,7 +1,10 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import ThemeRegistry from './components/ThemeRegistry/ThemeRegistry'
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "HappyLearner",
@@ -11,7 +14,26 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <ThemeRegistry>
+          <AppBar position="fixed" sx={{ zIndex: 10,  backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+            <Toolbar sx={{  backgroundColor: 'rgba(0, 0, 0, 0.5)', }}>
+              <Typography variant="h5" noWrap component="div" color="orange">
+                HappyLearner
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <Box
+            component="main"
+            sx={{
+              flexGrow: 1,
+              bgcolor: 'background.default',
+            }}
+          >
+            {children}
+          </Box>
+        </ThemeRegistry>
+      </body>
     </html>
   );
 }

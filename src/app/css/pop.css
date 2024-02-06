@@ -40,11 +40,6 @@
   position: relative;
 }
 
-.pop-swiper img {
-  min-width: 100%;
-  height: 100%;
-}
-
 .audio-player {
   position: absolute;
   transition: opacity 0.5s ease; /* 过渡效果，持续0.5秒 */
@@ -89,10 +84,6 @@
   animation: changeColor 0.4s forwards;
   margin-right: 5px;
   font-size: 24px;
-}
-
-.reset-animation {
-  animation: none !important;
 }
 
 @keyframes changeColor {

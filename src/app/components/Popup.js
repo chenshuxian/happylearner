@@ -4,10 +4,26 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // import required modules
 import { FreeMode, Navigation } from 'swiper/modules';
+import { Box } from '@mui/system';
+import { Paper } from '@mui/material';
+
+
 
 export const Popup = ({ title, data, isOpen, close }) => {
     const swiperRef = useRef(null);
     const [isMouseMoving, setIsMouseMoving] = useState(false);
+
+    const subtitleCss = {
+        position: 'absolute',
+        bottom: {sx:'', md:'20px'}, /* 根据需要调整 */
+        left: '50%',
+        transform: 'translateX(-50%)',
+        color: 'white',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        padding: '5px',
+        fontSize: {xs: '20px', md: '36px'},
+        width: '80%'
+      }
 
     useEffect(() => {
         let timer;
@@ -65,7 +81,18 @@ export const Popup = ({ title, data, isOpen, close }) => {
       };
   
     return (
-      <div className="popup" >
+      <Box sx={{
+        position: 'fixed', /* 固定位置 */
+        top: 0,
+        left: 0,
+        width: '100%', /* 全屏宽度 */
+        height: '100%',/* 全屏高度 */
+        background: 'black', 
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: '1000' /* 确保在顶层 */
+      }} >
          <button className="popup-close-btn" onClick={close}>&times;</button> {/* 关闭按钮 */}
          <Swiper
             ref={swiperRef}
@@ -84,20 +111,20 @@ export const Popup = ({ title, data, isOpen, close }) => {
         >
         {data.map((item, index) => (
         <SwiperSlide key={index}>
-            <img src={`/story/images/${title}/${index+1}.jpeg`} alt={item.subtitle} />
-            <div className="subtitle">
-                <div className="subtitle-center">
+            <Box component='img' src={`/story/images/${title}/${index+1}.jpeg`} alt={item.subtitle} sx={{ marginTop:{xs: '20%', md:'0'}, height: {xs: '50vh', md:'100vh'}, width: {xs: '100%', md:'100%'}}}/>
+            <div >
+                <Paper sx={subtitleCss}>
                 {item.subtitle.split(' ').map((char, index)=> (
-                    <span key={index} className='char' >
+                    <span key={index} className='char'>
                         {char}
                     </span>
                 ))}
                 {item.csubtitle.split(' ').map((char, index)=> (
-                    <span key={index} className='cchar' >
+                    <span key={index} className='char' >
                         {char}
                     </span>
                 ))}
-                </div>
+                </Paper>
             </div>
             <audio controls onEnded={() => handleAudioEnd()} className={`audio-player ${!isMouseMoving ? 'hidden' : ''}`}>
                 <source src={`/story/audios/${title}/${index+1}.mp3`} type='audio/mp3' />
@@ -105,7 +132,7 @@ export const Popup = ({ title, data, isOpen, close }) => {
         </SwiperSlide>
       ))}
       </Swiper>
-      </div>
+      </Box>
     );
   };
   
