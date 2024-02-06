@@ -1,7 +1,7 @@
 "use client"
 import React,{useRef, useState} from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Paper } from '@mui/material';
+import { Box } from '@mui/material';
 import { Footer } from './Footer';
 import '../css/swiper.css'
 // import required modules
@@ -30,10 +30,10 @@ export const ThumbnailSwiper = ({onThumbnailClick , data}) => {
       >
         {data.map((item, index) => (
         <SwiperSlide key={index}>
-          <Paper className='thumbnail'>
+          <Box className='thumbnail'>
             <img src={`/story/images/${item.title}/1.jpeg`} alt={item.title} onClick={() => onThumbnailClick(item)} />
             <div className='thumbnail-title'>{item.title}</div>
-          </Paper>
+          </Box>
         </SwiperSlide>
       ))}
       </Swiper>
