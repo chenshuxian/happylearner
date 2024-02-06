@@ -22,6 +22,7 @@ export const Popup = ({ title, data, isOpen, close }) => {
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         padding: '5px',
         fontSize: {xs: '20px', md: '36px'},
+        textAlign: 'center',
         width: '80%'
       }
 
