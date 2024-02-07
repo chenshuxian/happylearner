@@ -28,7 +28,6 @@ export const ThumbnailSwiper = ({onThumbnailClick , data}) => {
         }}
         loop={true} // 只有在有足够的幻灯片时才启用循环模式 
         navigation={true}
-        Parallax={true}
         modules={[Pagination, Navigation]}
       >
         {data.map((item, index) => (

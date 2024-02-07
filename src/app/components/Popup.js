@@ -67,7 +67,7 @@ export const Popup = ({ title, data, isOpen, close }) => {
     
     const playFirstSlideAudio = (swiper) => {
         const firstSlide = swiper.slides[0];
-        const audioPlayer = firstSlide.querySelector('audio');
+        const audioPlayer = firstSlide?.querySelector('audio');
         audioPlayer.play().catch((e) => console.log("Audio autoplay failed", e));
     };
 
