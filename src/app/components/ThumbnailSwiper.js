@@ -13,10 +13,12 @@ export const ThumbnailSwiper = ({onThumbnailClick , data}) => {
     <h2>近期推出</h2>
     <Swiper
         spaceBetween={3}
+        slidesPerView={6}
         breakpoints={{
-          // 当屏幕宽度>=640px
-          380: {
-            slidesPerView: 2, // 在中等屏幕上显示 2 个 slide
+          // 当屏幕宽度<=640px
+          320: {
+            slidesPerView: 2,
+            spaceBetween:20, // 在中等屏幕上显示 2 个 slide
           },
           // 当屏幕宽度>=768px
           768: {
@@ -26,6 +28,7 @@ export const ThumbnailSwiper = ({onThumbnailClick , data}) => {
         }}
         loop={true} // 只有在有足够的幻灯片时才启用循环模式 
         navigation={true}
+        Parallax={true}
         modules={[Pagination, Navigation]}
       >
         {data.map((item, index) => (

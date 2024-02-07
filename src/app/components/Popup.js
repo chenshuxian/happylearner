@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Navigation } from 'swiper/modules';
 import { Box } from '@mui/system';
 import { Paper } from '@mui/material';
+import { Button } from '@mui/base';
 
 
 
@@ -24,6 +25,19 @@ export const Popup = ({ title, data, isOpen, close }) => {
         fontSize: {xs: '20px', md: '36px'},
         textAlign: 'center',
         width: '80%'
+      }
+
+    const popupCloseBtn = {
+        position: 'absolute',
+        top: {xs: '5px', md: '10px'}, /* 调整按钮位置 */
+        left: {xs: '20px', md: '40px'},
+        border: 'none',
+        background: 'none',
+        color: 'rgba(128, 128, 128, 0.626)', /* 按钮颜色 */
+        fontSize: {xs: '50px', md: '80px'}, /* 按钮大小 */
+        cursor: 'pointer',
+        zIndex: '10',
+        boxShadow: 'none',
       }
 
     useEffect(() => {
@@ -94,7 +108,7 @@ export const Popup = ({ title, data, isOpen, close }) => {
         alignItems: 'center',
         zIndex: '1000' /* 确保在顶层 */
       }} >
-         <button className="popup-close-btn" onClick={close}>&times;</button> {/* 关闭按钮 */}
+         <Box sx={popupCloseBtn} onClick={close}>&times;</Box> {/* 关闭按钮 */}
          <Swiper
             ref={swiperRef}
             loop={true} // 只有在有足够的幻灯片时才启用循环模式
