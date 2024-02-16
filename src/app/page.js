@@ -47,13 +47,13 @@ const App = () => {
   return (
     <div>
       <Grid container direction="column">
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <MainFeature imageUrl={`/story/images/${stories[0]?.title}/1.jpeg`} title={stories[0]?.title} subtitle={stories[0]?.description}/>
         </Grid>
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <ThumbnailSwiper onThumbnailClick={handleThumbnailClick} data={stories}/>
         </Grid>
-        <Grid item xs={12}>
+        <Grid xs={12}>
           <Popup title={slideData?.title} data={slideData?.pages} isOpen={isPopupOpen} close={closePopup} />
         </Grid>
       </Grid>

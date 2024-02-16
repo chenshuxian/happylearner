@@ -1,3 +1,4 @@
+import { createPage } from './pages';
 import prisma from './prisma';
 
 async function getStory() {
@@ -34,11 +35,21 @@ async function getStoryById(id) {
 }
 
 async function createStory(data) {
+	let pages = data.pages;
+	delete data.pages; // 刪除story不要的pages資料
+	let Page;
 	try {
 		const Story = await prisma.Story.create({
 			data,
 		});
-		return Story;
+
+		// console.log(Story)
+		// story 成功新增後新增pages
+		if(Story){
+			Page = await createPage(pages, Story.id);
+		}
+		
+		return Page;
 	} catch (e) {
 		console.log(e);
 	} finally {

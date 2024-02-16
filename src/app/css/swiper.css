@@ -10,6 +10,13 @@
   z-index: 10;
 }
 
+@media (max-width: 767px) {
+  .thumbnail-swiper {
+    bottom: -100px; /* Adjust based on the height of your thumbnails for mobile */
+    /* Other mobile-specific styles here */
+  }
+}
+
 .thumbnail {
   position: relative;
   display: flex;

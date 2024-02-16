@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { errorCode } from '@/utils/errorCode';
 import { getStory, createStory, deleteManyStory } from '@/libs/stories';
+import { uploadJSON } from '@/utils/upload';
 
 /**
  * @swagger
@@ -122,7 +123,7 @@ export default async (req, res) => {
 			}
 
 			try {
-				stories = await createStory(storyData);
+				stories = uploadJSON(req, res, createStory);
 			} catch (e) {
 				console.log(`add page err: ${JSON.stringify(e)}`);
 				res.status(e.statusCode).json(e);

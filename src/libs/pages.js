@@ -20,11 +20,18 @@ async function getPageById(id) {
 	return Page;
 }
 
-async function createPage(data) {
+async function createPage(data, storyId) {
+	let Page, pgNum;
 	try {
-		const Page = await prisma.Page.create({
-			data,
-		});
+		for (const page of data) {
+			pgNum = page.pageNumber +"";
+			page.imageUrl = pgNum;
+			page.audioUrl = pgNum;
+			page.storyId = storyId;
+			Page = await prisma.Page.create({
+				data : page
+			});
+		}
 		return Page;
 	} catch (e) {
 		console.log(e);
