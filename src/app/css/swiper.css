@@ -5,16 +5,19 @@
 .thumbnail-swiper {
   padding: 10px;
   position: absolute;
-  bottom: -180px; /* Adjust based on the height of your thumbnails */
+  transform: translateY(-15%);
   width: 100%;
   z-index: 10;
 }
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
   .thumbnail-swiper {
-    bottom: -100px; /* Adjust based on the height of your thumbnails for mobile */
-    /* Other mobile-specific styles here */
+   
   }
+} */
+
+.swiper-block {
+  margin-top: 10px;
 }
 
 .thumbnail {

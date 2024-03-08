@@ -146,11 +146,7 @@ const uploadJSON = function (req, res, create) {
 				return;
 			}
 
-			let records = [];
 			const parser = fs.readFileSync(file.filepath);
-			// for await (const record of JSON.parse(parser)) {
-			// 	records.push(record);
-			// }
 
 			// console.log(`json record : ${parser}`);
 

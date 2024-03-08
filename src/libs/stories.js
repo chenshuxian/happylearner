@@ -9,6 +9,7 @@ async function getStory() {
 				id:true,
 				title:true,
 				description:true,
+				createdAt:true,
 				pages:{
 					select:{
 						subtitle:true,
